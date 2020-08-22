@@ -10,7 +10,10 @@ from .permissions import IsOwnerOrReadOnly
 
 
 class ProjectList(APIView):
-    
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+    ]
     
     def get_object(self, pk):
         return Project.objects.get(pk=pk)
@@ -44,7 +47,7 @@ class ProjectList(APIView):
                 )
     
 class ProjectDetail(APIView):
-    permission_classes =[
+    permission_classes = [
         permissions.IsAuthenticatedOrReadOnly,
         IsOwnerOrReadOnly
     ]
@@ -89,5 +92,10 @@ class PledgeList(APIView):
                 serializer.errors,
                 status=status.HTTP_400_BAD_REQUEST
                 )
+
+    def delete_view(request, id):
+        
+        
+        context ={} 
 
 # Create your views here.
