@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, Pledge
+from .models import Project, Pledge, CATEGORY_CHOICES
 
 
 class ProjectSerializer(serializers.Serializer):
@@ -26,7 +26,10 @@ class PledgeSerializer(serializers.Serializer):
     anonymous = serializers.BooleanField()
     supporter = serializers.ReadOnlyField(source='supporter.id')
     project_id = serializers.IntegerField()
-
+#     foodtypes = serializers.ChoiceField(choices=CATEGORY_CHOICES)
+    
+#     class Meta:
+#             Model = Project
     #user = serializers.ReadOnlyField(source='user.id')
     # project_id = serializers.ReadOnlyField(source='project.id')
     #data_created = serializers.ReadOnlyField()
