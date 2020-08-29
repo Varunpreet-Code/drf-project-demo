@@ -2,10 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 
 # Create your models here.
-CATEGORY_CHOICES = (
-    ('Vegetarian', 'Veg'),
-    ('Non-Vegetarian','Non-Veg')
-)
+
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -20,7 +17,10 @@ class Project(models.Model):
         on_delete=models.CASCADE,
         related_name='owner_projects'
     )
-
+    CATEGORY_CHOICES = (
+    ('Vegetarian', 'Veg'),
+    ('Non-Vegetarian','Non-Veg')
+    )
     foodtypes = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     
 class Pledge(models.Model):
