@@ -19,7 +19,21 @@ class Project(models.Model):
     )
     CATEGORY_CHOICES = (
     ('Vegetarian', 'Veg'),
-    ('Non-Vegetarian','Non-Veg')
+    ('Non-Vegetarian','Non-Veg'),
+    ('Raw-Foods','RW'),
+    ('Non-Raw-Foods','NRF'),
+    ('Fruits','F'),
+    ('Whole-Grain','WG'),
+    ('Dairy-Products', 'DP'),
+    ('Legumes/Beans','L/B'),
+    ('Breads', 'B'),
+    ('Rice/Brown-Rice', 'R/B-R'),
+    ('Cooked-Veg','CV'),
+    ('Cooked-Non-veg','CNV')
+
+
+
+
     )
     foodtypes = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     
